@@ -26,11 +26,7 @@
         foreach ($imagenes as $index => $img) {
             $active = ($index == 0) ? 'active' : '';
             echo "<div class='slide $active'>
-                    <img src='$img' class='$active'>
-                    <form action='upload.php' method='POST' style='display:inline;'>
-                        <input type='hidden' name='archivo' value='$img'>
-                        <button type='submit' name='eliminar' style='background:red; color:white;'>Eliminar</button>
-                    </form>
+                    <img src='$img' class='$active' data-src='$img'>
                   </div>";
         }
         ?>
@@ -39,7 +35,13 @@
     <div class="controls">
         <button onclick="mover(-1)">Anterior</button>
         <button onclick="mover(1)">Siguiente</button>
+        <button onclick="eliminarActiva()" style="background:red; color:white;">Eliminar Imagen</button>
     </div>
+
+    <form id="deleteForm" action="upload.php" method="POST" style="display:none;">
+        <input type="hidden" name="archivo" id="archivoInput">
+        <input type="hidden" name="eliminar" value="1">
+    </form>
 </div>
 
 <script src="../scripts.js"></script>
