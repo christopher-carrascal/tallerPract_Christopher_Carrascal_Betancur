@@ -1,17 +1,14 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['subir'])) {
-        // Handle file upload
         if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
             $fileTmpPath = $_FILES['imagen']['tmp_name'];
             $fileName = $_FILES['imagen']['name'];
             $fileSize = $_FILES['imagen']['size'];
             $fileType = $_FILES['imagen']['type'];
             
-            // Validate that it's an image
             $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
             if (!in_array($fileType, $allowedTypes)) {
-                // Invalid file type
                 header('Location: index.php?error=invalid_type');
                 exit;
             }

@@ -8,5 +8,4 @@ function mover(paso) {
     slides[indice].classList.add('active');
 }
 
-// Auto-play opcional
 setInterval(() => mover(1), 5000);
