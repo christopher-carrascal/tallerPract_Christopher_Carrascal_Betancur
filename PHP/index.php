@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Taller 2 - Gestor de Imágenes</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="../estilos.css">
 </head>
 <body>
 
@@ -19,7 +19,7 @@
 
     <div class="carousel" id="carousel">
         <?php
-        $directorio = "uploads/";
+        $directorio = "../uploads/";
         if (!is_dir($directorio)) mkdir($directorio, 0777, true);
         $imagenes = glob($directorio . "*.{jpg,jpeg,png,gif}", GLOB_BRACE);
         
@@ -42,18 +42,7 @@
     </div>
 </div>
 
-<script>
-    let indice = 0;
-    function mover(paso) {
-        const slides = document.querySelectorAll('.carousel img');
-        if (slides.length === 0) return;
-        slides[indice].classList.remove('active');
-        indice = (indice + paso + slides.length) % slides.length;
-        slides[indice].classList.add('active');
-    }
-    // Auto-play opcional
-    setInterval(() => mover(1), 5000);
-</script>
-//Prueba
+<script src="../scripts.js"></script>
+
 </body>
 </html>
