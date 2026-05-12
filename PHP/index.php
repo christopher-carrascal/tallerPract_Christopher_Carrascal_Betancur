@@ -54,6 +54,6 @@
     // Auto-play opcional
     setInterval(() => mover(1), 5000);
 </script>
-
+//Prueba
 </body>
 </html>
